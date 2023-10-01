@@ -1,1 +1,30 @@
+#Projeto final do curso de Visualização de Dados
 
+#Proposta - O projeto final corresponde a realização de um gráfico de série 
+#temporal do preço das ações das empresas do segmento TECH ao longo do tempo. 
+#Adicionalmente, um boxplot do preço das ações para cada empresa também será 
+#mostrando, visando identificar o range de preços e a possibilidade de outliers.
+
+
+#Bibliotecas utilizadas
+library(tidytuesdayR)
+library(tidyverse)
+library(ggthemes)
+
+
+#Extração dos dados
+##Parte 1
+tuesdata <- tidytuesdayR::tt_load('2023-02-07')
+tuesdata <- tidytuesdayR::tt_load(2023, week = 6)
+##Parte 2
+big_tech_stock_prices <- tuesdata$big_tech_stock_prices
+big_tech_companies <- tuesdata$big_tech_companies
+
+#Base de dados
+#Preço das ações da bolsas
+big_tech_stock_prices |> view()
+#Nome das empresas
+big_tech_companies |> view()
+
+##Fonte dos dados
+#https://www.kaggle.com/datasets/evangower/big-tech-stock-prices
